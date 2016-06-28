@@ -684,7 +684,7 @@
         }
     }
     
-#if 1
+#if 0
     QMZBChatView *chat = [[QMZBChatView alloc] init];
     chat.isLiveMode = 0;
     chat.roomId = obj.liveRoomId;
