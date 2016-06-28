@@ -1,0 +1,74 @@
+//
+//  qmzb.pch
+//  QMZB
+//
+//  Created by 刘淦 on 5/4/16.
+//  Copyright © 2016 yangchuanshuai. All rights reserved.
+//
+
+#ifndef qmzb_pch
+#define qmzb_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
+#import "UIColor+Hex.h"
+#import "QMZBUIUtil.h"
+#import "QMZBUserInfo.h"
+#import "UIView+Extension.h"
+#import "QMZBNetwork.h"
+#import "NSString+Extension.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define kScreenFrame                    [UIScreen mainScreen].bounds
+#define kScreenSize                     kScreenFrame.size
+#define kScreenWidth                    kScreenFrame.size.width
+#define kScreenHeight                   kScreenFrame.size.height
+
+#define fx(frame)                       (frame).origin.x
+#define fy(frame)                       (frame).origin.y
+#define fw(frame)                       (frame).size.width
+#define fh(frame)                       (frame).size.height
+#define fr(frame)                       (fx(frame) + fw(frame))
+#define fb(frame)                       (fy(frame) + fh(frame))
+
+#define vx(view)                        (view).frame.origin.x
+#define vy(view)                        (view).frame.origin.y
+#define vw(view)                        (view).frame.size.width
+#define vh(view)                        (view).frame.size.height
+#define vr(view)                        (vx(view) + vw(view))
+#define vb(view)                        (vy(view) + vh(view))
+#define vf(view)                        (view).frame
+
+#define beginAnimation(__delay, __duration, __curve) \
+    [UIView beginAnimations: nil context: nil]; \
+    [UIView setAnimationDuration: (__duration)]; \
+    [UIView setAnimationCurve: (__curve)]; \
+    [UIView setAnimationDelay: (__delay)];
+
+
+#define endAnimation \
+    [UIView commitAnimations];
+
+#define kHeightOffsetLiveRoomCell             60
+
+#define MakeCornerRound(target, radius)\
+    target.layer.borderColor = [target.backgroundColor CGColor]; \
+    target.layer.cornerRadius = radius
+
+#define MakeBorderRoundWithColor(target, radius, bordercolor, bwidth)\
+    target.layer.borderColor = [bordercolor CGColor]; \
+    target.layer.borderWidth = (bwidth); \
+    target.layer.cornerRadius = radius
+
+#define MakeBorderRound(target, radius)\
+    target.layer.borderColor = [[UIColor lightGrayColor] CGColor]; \
+    target.layer.borderWidth = 1; \
+    target.layer.cornerRadius = radius
+
+#define MakeRGB(_r, _g, _b)             [UIColor colorWithRed: (_r)/255.0 green: (_g)/255.0 blue: (_b)/255.0 alpha: 1.0]
+#define kColorNickname                   MakeRGB(222, 172, 81)
+
+
+#endif /* qmzb_pch */
